@@ -6,9 +6,21 @@ function App() {
   const [counter, setCounter] = useState(15)
 
   const addValue = ()=>{
-    console.log("add value", Math.random());
+    console.log("clicked", Math.random());
+    
+    if (counter<20) {
+      setCounter(counter + 1)
+    }else{
+      console.log("error");
+    }
   }
-
+  const removeValue = ()=>{
+    if (counter>0) {
+      setCounter(counter-1)
+    } else {
+      console.log("ok");
+    }
+  }
 
   return  (
     <>
@@ -16,7 +28,7 @@ function App() {
     <h2>Counter Value: {counter}</h2>
     <br />
     <button onClick={addValue}>Add Value</button>
-    <button>Remove Value</button>
+    <button onClick={removeValue}>Remove Value</button>
     </>
   )
 }
